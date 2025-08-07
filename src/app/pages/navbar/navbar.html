@@ -1,0 +1,30 @@
+<nav class=" bg-[#00003c] text-white p-3 md:flex md:justify-between md:items-center">
+  <a routerLink="/" class="text-xl font-bold">🛠️ JMC Ferretería Web 🛒</a>
+
+  <div class="flex flex-col md:flex-row gap-4 items-center text-center p-3 md:p-1 ">
+    <div class="flex justify-between gap-4">
+      <a routerLink="/" class="hover:underline">Inicio</a>
+      <a routerLink="/nosotros" class="hover:underline">Nosotros</a>
+      <a routerLink="/catalogo" class="hover:underline">Catálogo</a>
+    </div>
+
+    <div class="flex justify-between gap-4">
+      <ng-container *ngIf="auth.isLoggedIn(); else loginLink">
+        <div class="bg-blue-600 rounded p-1 md:p-2">
+          <a routerLink="/agregar-producto" class="hover:underline text-[15px]">📝 Productos</a>
+        </div>
+        <div class="bg-blue-600 rounded p-1 md:p-2">  
+          <a routerLink="/crear-categoria" class="hover:underline text-[15px]">📝 Categorías</a>
+        </div>  
+          <button (click)="logout()" class="bg-red-600 px-3 py-1 rounded hover:bg-red-700">Salir</button>
+      </ng-container>
+    </div>
+    <div>
+      <ng-template #loginLink>
+        <a routerLink="/login" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Login</a>
+      </ng-template>
+    </div>
+
+  </div>
+</nav>
+

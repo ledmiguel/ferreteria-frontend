@@ -1,0 +1,83 @@
+<div class="max-w-xl mx-auto p-6 bg-white shadow-md rounded">
+  <h2 class="text-2xl font-bold mb-4">Agregar Producto</h2>
+
+  <form (ngSubmit)="guardarProducto()" #form="ngForm">
+    <!-- Nombre -->
+    <label class="block mb-2">Nombre:</label>
+    <input #nameInput
+      type="text"
+      [(ngModel)]="nuevoProducto.name"
+      name="name"
+      required
+      class="w-full border px-3 py-2 mb-1 rounded"
+      #name="ngModel"
+    />
+    <div *ngIf="name.invalid && form.submitted" class="text-red-600 text-sm mb-3">
+      El nombre es obligatorio.
+    </div>
+
+    <!-- Descripción -->
+    <label class="block mb-2">Descripción:</label>
+    <textarea
+      [(ngModel)]="nuevoProducto.description"
+      name="description"
+      class="w-full border px-3 py-2 mb-4 rounded"
+    ></textarea>
+
+    <!-- Precio -->
+    <label class="block mb-2">Precio:</label>
+    <input
+      type="number"
+      [(ngModel)]="nuevoProducto.price"
+      name="price"
+      required
+      class="w-full border px-3 py-2 mb-1 rounded"
+      #price="ngModel"
+    />
+    <div *ngIf="price.invalid && form.submitted" class="text-red-600 text-sm mb-3">
+      El precio es obligatorio.
+    </div>
+
+    <!-- Imagen -->
+    <label class="block mb-2">URL de imagen:</label>
+    <input
+      type="text"
+      [(ngModel)]="nuevoProducto.imageUrl"
+      name="imageUrl"
+      required
+      class="w-full border px-3 py-2 mb-1 rounded"
+      #imageUrl="ngModel"
+    />
+    <div *ngIf="imageUrl.invalid && form.submitted" class="text-red-600 text-sm mb-3">
+      La URL de imagen es obligatoria.
+    </div>
+
+    <!-- Categoría -->
+    <label class="block mb-2">Categoría:</label>
+    <select
+      [(ngModel)]="nuevoProducto.categoryId"
+      name="categoryId"
+      required
+      class="w-full border px-3 py-2 mb-1 rounded"
+      #categoryId="ngModel"
+    >
+      <option value="" disabled selected>Selecciona una categoría</option>
+      <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.name }}</option>
+    </select>
+    <div *ngIf="categoryId.invalid && form.submitted" class="text-red-600 text-sm mb-3">
+      La categoría es obligatoria.
+    </div>
+
+    <!-- Botón -->
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      {{ modoEdicion ? 'Actualizar' : 'Agregar' }}
+    </button>
+
+    <!-- Mensaje -->
+    <p class="mt-4 text-sm text-green-700" *ngIf="mensaje">{{ mensaje }}</p>
+  </form>
+</div>
