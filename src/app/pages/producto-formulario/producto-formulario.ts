@@ -21,7 +21,9 @@ export class ProductoFormulario implements OnInit {
     description: '',
     price: 0,
     imageUrl: '',
-    categoryId: 0
+    categoryId: 0,
+    images: [],
+    features: []
   };
 
   categorias: CategoryData[] = [];
@@ -67,18 +69,26 @@ export class ProductoFormulario implements OnInit {
       this.nuevoProducto.imageUrl &&
       this.nuevoProducto.categoryId
     ) {
+      // ✅ Limpieza previa
+      const productoAEnviar: ProductData = {
+        ...this.nuevoProducto,
+        images: this.nuevoProducto.images?.filter(img => img.url.trim() !== '') || [],
+        features: this.nuevoProducto.features?.filter(f => f.name.trim() !== '' && f.value.trim() !== '') || []
+      };
+
       if (this.modoEdicion && this.productoId) {
-        this.productService.updateProduct(this.productoId, this.nuevoProducto).subscribe({
+        this.productService.updateProduct(this.productoId, productoAEnviar).subscribe({
           next: () => {
             this.mensaje = 'Producto actualizado exitosamente';
-            this.router.navigate(['/catalogo']); // Vuelve al catálogo
+            this.router.navigate(['/catalogo']);
           },
-          error: () => {
+          error: (error) => {
+            console.error(error);
             this.mensaje = 'Error al actualizar el producto';
           }
         });
       } else {
-        this.productService.createProduct(this.nuevoProducto).subscribe({
+        this.productService.createProduct(productoAEnviar).subscribe({
           next: () => {
             this.mensaje = 'Producto agregado exitosamente';
             this.nuevoProducto = {
@@ -86,11 +96,14 @@ export class ProductoFormulario implements OnInit {
               description: '',
               price: 0,
               imageUrl: '',
-              categoryId: 0
+              categoryId: 0,
+              images: [],
+              features: []
             };
             this.nameInput.nativeElement.focus();
           },
-          error: () => {
+          error: (error) => {
+            console.error(error);
             this.mensaje = 'Error al agregar el producto';
           }
         });
@@ -99,4 +112,21 @@ export class ProductoFormulario implements OnInit {
       this.mensaje = 'Completa todos los campos obligatorios';
     }
   }
+
+  agregarImagen(): void {
+    this.nuevoProducto.images?.push({ url: '' });
+  }
+
+  eliminarImagen(index: number): void {
+    this.nuevoProducto.images?.splice(index, 1);
+  }
+
+  agregarCaracteristica(): void {
+    this.nuevoProducto.features?.push({ name: '', value: '' });
+  }
+
+  eliminarCaracteristica(index: number): void {
+    this.nuevoProducto.features?.splice(index, 1);
+  }
+
 }

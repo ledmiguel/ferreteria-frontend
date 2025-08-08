@@ -11,6 +11,8 @@ export interface ProductData {
   price: number;
   imageUrl: string;
   categoryId: number;
+  images?: { id?: number; url: string }[];
+  features?: { id?: number; name: string; value: string }[];
 }
 
 @Injectable({

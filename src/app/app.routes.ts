@@ -15,4 +15,5 @@ export const routes: Routes = [
     {path: 'login', component: Login },
     {path: 'editar-producto/:id', loadComponent: () => import('./pages/producto-formulario/producto-formulario').then(m => m.ProductoFormulario)},
     {path: 'editar-categoria/:id', loadComponent: () => import('./pages/categoria-formulario/categoria-formulario').then(m => m.CategoriaFormulario)},
+    {path: 'producto/:id', loadComponent: () => import('./pages/detalle-producto/detalle-producto').then(m => m.DetalleProducto)},
 ];
