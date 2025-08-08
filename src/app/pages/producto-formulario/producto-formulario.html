@@ -12,9 +12,12 @@
       class="w-full border px-3 py-2 mb-1 rounded"
       #name="ngModel"
     />
-    <div *ngIf="name.invalid && form.submitted" class="text-red-600 text-sm mb-3">
-      El nombre es obligatorio.
-    </div>
+
+    @if (name.invalid && form.submitted) {
+      <div class="text-red-600 text-sm mb-3">
+        El nombre es obligatorio.
+      </div>
+    }
 
     <!-- Descripción -->
     <label class="block mb-2">Descripción:</label>
@@ -34,9 +37,12 @@
       class="w-full border px-3 py-2 mb-1 rounded"
       #price="ngModel"
     />
-    <div *ngIf="price.invalid && form.submitted" class="text-red-600 text-sm mb-3">
-      El precio es obligatorio.
-    </div>
+
+    @if(price.invalid && form.submitted) {
+      <div class="text-red-600 text-sm mb-3">
+        El precio es obligatorio.
+      </div>
+    }
 
     <!-- Imagen -->
     <label class="block mb-2">URL de imagen:</label>
@@ -48,9 +54,12 @@
       class="w-full border px-3 py-2 mb-1 rounded"
       #imageUrl="ngModel"
     />
-    <div *ngIf="imageUrl.invalid && form.submitted" class="text-red-600 text-sm mb-3">
-      La URL de imagen es obligatoria.
-    </div>
+
+    @if (imageUrl.invalid && form.submitted) {
+      <div class="text-red-600 text-sm mb-3">
+        La URL de imagen es obligatoria.
+      </div>
+    }
 
     <!-- Categoría -->
     <label class="block mb-2">Categoría:</label>
@@ -62,10 +71,37 @@
       #categoryId="ngModel"
     >
       <option value="" disabled selected>Selecciona una categoría</option>
-      <option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.name }}</option>
+
+      @for (cat of categorias; track cat.id) {
+        <option [value]="cat.id">{{ cat.name }}</option>
+      }
     </select>
-    <div *ngIf="categoryId.invalid && form.submitted" class="text-red-600 text-sm mb-3">
-      La categoría es obligatoria.
+
+    @if (categoryId.invalid && form.submitted) {
+      <div class="text-red-600 text-sm mb-3">
+        La categoría es obligatoria.
+      </div>
+    }
+
+    <div class="mt-4">
+      <h4 class="font-bold">Imágenes adicionales:</h4>
+      <button class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 px-3 py-2 rounded transition" type="button" (click)="agregarImagen()">Agregar imagen</button>
+
+      <div *ngFor="let img of nuevoProducto.images; let i = index" class="flex items-center gap-2">
+        <input class="w-96 border px-3 py-2 mb-1 rounded" type="text" [(ngModel)]="img.url" placeholder="URL de la imagen" name="imageUrl{{i}}" />
+        <button class="bg-red-500 text-white px-2 py-2 rounded" type="button" (click)="eliminarImagen(i)">Eliminar</button>
+      </div>
+
+    </div>
+
+    <div class="mt-4">
+      <h4 class="font-bold">Características del producto:</h4>
+      <button class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 px-3 py-2 rounded transition" type="button" (click)="agregarCaracteristica()">Agregar característica</button>
+      <div *ngFor="let f of nuevoProducto.features; let i = index" class="flex items-center gap-1 mb-2">
+        <input class="w-80 border px-3 py-2 mb-1 rounded" type="text" [(ngModel)]="f.name" placeholder="Nombre" name="featureName{{i}}" />
+        <input class="w-80 border px-3 py-2 mb-1 rounded" type="text" [(ngModel)]="f.value" placeholder="Valor" name="featureValue{{i}}" />
+        <button class="bg-red-500 text-white px-2 py-2 rounded" type="button" (click)="eliminarCaracteristica(i)">Eliminar</button>
+      </div>
     </div>
 
     <!-- Botón -->

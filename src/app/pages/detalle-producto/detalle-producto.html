@@ -1,0 +1,45 @@
+<div class="max-w-4xl mx-auto p-8 grid md:grid-cols-2 gap-8 items-start">
+  @if (producto) {
+    <div>
+      <!-- Imagen principal -->
+      <img [src]="producto.imageUrl" class="w-full h-auto object-contain bg-gray-100 p-4 rounded mb-4" />
+
+      <!-- Otras imágenes -->
+      @if (producto.images?.length) {
+        <h4 class="text-lg font-semibold mb-2">Otras imágenes:</h4>
+        <div class="flex gap-3 flex-wrap">
+          <img
+            *ngFor="let img of producto.images"
+            [src]="img.url"
+            alt="Imagen adicional"
+            class="w-24 h-24 object-cover border rounded"
+          />
+        </div>
+      }
+    </div>
+
+    <div class="text-center md:text-left">
+      <h2 class="text-3xl font-bold mb-4 uppercase">{{ producto.name }}</h2>
+      <p class="text-gray-500 mb-6">{{ producto.description }}</p>
+      <p class="text-gray-700 text-xl mb-4 font-bold">S/ {{ producto.price | number:'1.2-2' }}</p>
+
+      <!-- Características -->
+      @if (producto.features?.length) {
+        <h4 class="text-lg font-semibold mb-2">Características:</h4>
+        <ul class="mb-4 list-disc list-inside text-left">
+          @for (f of producto.features; track f.id) {
+            <li> <strong>{{ f.name }}:</strong> {{ f.value }} </li>
+          }
+        </ul>
+      }
+
+      <a
+        class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded transition"
+        [href]="generarEnlaceWhatsApp(producto.name)"
+        target="_blank"
+      >
+        Comprar por WhatsApp
+      </a>
+    </div>
+  }
+</div>
