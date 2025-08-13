@@ -1,0 +1,112 @@
+<!-- Header -->
+<header class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="text-2xl font-bold text-blue-700">MiFerretería</div>
+    <div class="flex-1 mx-6">
+      <input
+        type="text"
+        placeholder="Buscar productos..."
+        class="w-full border rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400"
+      />
+    </div>
+    <nav class="space-x-4">
+      <a routerLink="/" class="hover:text-blue-600">Inicio</a>
+      <a routerLink="/catalogo" class="hover:text-blue-600">Catálogo</a>
+      <a routerLink="/categorias" class="hover:text-blue-600">Categorías</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section
+  class="bg-gray-100 py-16"
+  style="background-image: url('https://images.unsplash.com/photo-1607082349566-187342175e2d?auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;"
+>
+  <div class="bg-black bg-opacity-50 py-16">
+    <div class="max-w-7xl mx-auto text-center text-white px-4">
+      <h1 class="text-4xl font-bold mb-4">Todo lo que necesitas para tu hogar y proyectos</h1>
+      <p class="mb-6">Herramientas, tecnología y más, con envío rápido y seguro</p>
+      <a
+        routerLink="/catalogo"
+        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded shadow"
+      >
+        Ver Catálogo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Categorías -->
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">Comprar por categoría</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="bg-gray-100 p-6 rounded shadow hover:shadow-lg cursor-pointer text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063407.png" class="mx-auto h-16 mb-4" />
+        <h3 class="text-lg font-semibold">Ferretería</h3>
+      </div>
+      <div class="bg-gray-100 p-6 rounded shadow hover:shadow-lg cursor-pointer text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" class="mx-auto h-16 mb-4" />
+        <h3 class="text-lg font-semibold">Hogar</h3>
+      </div>
+      <div class="bg-gray-100 p-6 rounded shadow hover:shadow-lg cursor-pointer text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3405/3405274.png" class="mx-auto h-16 mb-4" />
+        <h3 class="text-lg font-semibold">Tecnología</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Productos destacados -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">Productos destacados</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-white p-4 rounded shadow hover:shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1586864387760-3e4e1d29e6e1?auto=format&fit=crop&w=800&q=80"
+          alt="Producto"
+          class="rounded mb-4"
+        />
+        <h3 class="font-semibold">Taladro Eléctrico</h3>
+        <p class="text-blue-600 font-bold">S/ 250.00</p>
+        <a
+          href="https://wa.me/51999999999"
+          target="_blank"
+          class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded inline-block mt-2"
+        >
+          Comprar
+        </a>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow hover:shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1585144575128-89d024f8d08d?auto=format&fit=crop&w=800&q=80"
+          alt="Producto"
+          class="rounded mb-4"
+        />
+        <h3 class="font-semibold">Set de Destornilladores</h3>
+        <p class="text-blue-600 font-bold">S/ 80.00</p>
+        <a
+          href="https://wa.me/51999999999"
+          target="_blank"
+          class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded inline-block mt-2"
+        >
+          Comprar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-6">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between">
+    <p>&copy; 2025 MiFerretería. Todos los derechos reservados.</p>
+    <div class="space-x-4">
+      <a href="#" class="hover:text-blue-400">Facebook</a>
+      <a href="#" class="hover:text-blue-400">Instagram</a>
+      <a href="#" class="hover:text-blue-400">WhatsApp</a>
+    </div>
+  </div>
+</footer>
