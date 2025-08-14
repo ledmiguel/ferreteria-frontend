@@ -4,37 +4,58 @@
     <a href="/catalogo" class="bg-[#00003c]  hover:bg-blue-900 text-[#FFFFFF] py-2 px-6 my-2 rounded transition font-bold text-[20px]">Ver Catálogo</a>
 </div>
 
-<div class="py-7 mx-5 grid grid-cols-1 md:grid-cols-3 gap-5">
-    <div class="flex flex-col items-center p-[10px]">
-        <div class="mx-5 p-3 size-48">
-            <img class="rounded-3xl" src="assets/img/carpinteria.jpg" alt="icono-carpinteria">
-        </div>
-        <div class="servicio-descripcion">
-            <h3 class="text-[25px] font-black text-center my-3">Carpintería</h3>
-            <p class="text-[20px] text-center my-[20px]">Ofrecemos insumos y herramientas de alta precisión para el trabajo en madera, ideales para carpinteros, ebanistas, artesanos y entusiastas del bricolaje.</p>
-        </div>
-    </div><!--servicio-->
+<section class="py-10 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">
+      Nuestras Categorías
+    </h2>
 
-    <div class="flex flex-col items-center p-[10px]">
-        <div class="mx-5 p-3 size-48">
-            <img class="rounded-3xl" src="assets/img/ferreteria.jpg" alt="icono-ferrteria">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Herramientas -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+        <img src="assets/img/ferreteria.jpg" alt="Herramientas" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">La fuerza que necesitas</h3>
+          <p class="text-gray-600 mb-4">
+            Potencia tus proyectos con herramientas de calidad profesional y rendimiento garantizado. Encuentra todo lo que necesitas para trabajar con precisión y seguridad. ¡Equípate hoy y lleva tus ideas al siguiente nivel!
+          </p>
+          <a href="/catalogo" class="inline-block bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+            Ver productos
+          </a>
         </div>
-        <div class="servicio-descripcion">
-            <h3 class="text-[25px] font-black text-center my-3">Ferretería</h3>
-            <p class="text-[20px] text-center my-[20px]">Contamos con herramientas, accesorios y materiales resistentes para todo tipo de trabajos, desde pequeñas reparaciones hasta proyectos de construcción.</p>
-        </div>
-    </div><!--servicio-->
+      </div>
 
-    <div class="flex flex-col items-center p-[10px]">
-        <div class="mx-5 p-3 size-48">
-            <img class="rounded-3xl" src="assets/img/electricos.webp" alt="icono-electricos">
+      <!-- Tableros -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+        <img src="assets/img/tableros.webp" alt="Tableros" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">La base de tus grandes ideas</h3>
+          <p class="text-gray-600 mb-4">
+            Elige tableros resistentes, versátiles y listos para convertir tus planes en realidad. Acabados impecables y medidas precisas para cualquier tipo de proyecto. ¡Construye con confianza desde el primer corte!
+          </p>
+          <a href="/catalogo" class="inline-block bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+            Ver productos
+          </a>
         </div>
-        <div class="servicio-descripcion">
-            <h3 class="text-[25px] font-black text-center my-3">Eléctricos</h3>
-            <p class="text-[20px] text-center my-[20px]">Ofrecemos productos eléctricos certificados y seguros para instalaciones domésticas e industriales, con garantía de funcionalidad y rendimiento.</p>
+      </div>
+
+      <!-- Pinturas -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
+        <img src="assets/img/pinturas.jpg" alt="Pinturas" class="w-full h-56 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Colores que inspiran</h3>
+          <p class="text-gray-600 mb-4">
+            Dale vida a tus espacios con pinturas de alto rendimiento, colores intensos y larga duración. La cobertura perfecta para transformar cada rincón. ¡Elige tu tono y comienza a renovar hoy mismo!
+          </p>
+          <a href="#" class="inline-block bg-yellow-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+            Ver productos
+          </a>
         </div>
-    </div><!--servicio-->
-</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="w-full h-[250px] bg-cover bg-center bg-no-repeat bg-fixed flex flex-col justify-center items-center mb-5" style="background-image: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url('assets/img/fondo2.jpg');">
 
