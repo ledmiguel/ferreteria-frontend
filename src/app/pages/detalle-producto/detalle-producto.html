@@ -21,7 +21,7 @@
     <div class="text-center md:text-left">
       <h2 class="text-3xl font-bold mb-4 uppercase">{{ producto.name }}</h2>
       <p class="text-gray-500 mb-6">{{ producto.description }}</p>
-      <p class="text-gray-700 text-xl mb-4 font-bold">S/ {{ producto.price | number:'1.2-2' }}</p>
+      <p class="text-blue-700 text-xl mb-4 font-bold">S/ {{ producto.price | number:'1.2-2' }}</p>
 
       <!-- Características -->
       @if (producto.features?.length) {
