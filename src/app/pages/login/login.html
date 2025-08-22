@@ -15,8 +15,9 @@
       Iniciar sesión
     </button>
 
-    <p *ngIf="mensaje" class="mt-4 text-sm text-center text-red-600">
-      {{ mensaje }}
-    </p>
+    @if(mensaje) {
+      <p class="mt-4 text-sm text-center text-red-600">{{mensaje}}</p>
+    }
+
   </form>
 </div>

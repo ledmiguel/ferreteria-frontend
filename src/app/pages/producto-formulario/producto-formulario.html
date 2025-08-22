@@ -86,27 +86,73 @@
     <div class="bg-blue-100 mt-4">
       <h4 class="font-bold">Imágenes adicionales:</h4>
 
-      <div *ngFor="let img of nuevoProducto.images; let i = index" class="flex items-center gap-2">
-        <input class="w-96 border px-3 py-2 mb-1 ml-1 md:ml-2 rounded" type="text" [(ngModel)]="img.url" placeholder="URL de la imagen" name="imageUrl{{i}}" />
-        <button class="bg-red-500 text-white px-2 py-1 rounded" type="button" (click)="eliminarImagen(i)">Eliminar</button>
-      </div>
+      @for (img of nuevoProducto.images; track $index) {
+        <div class="flex items-center gap-2">
+          <input
+            class="w-96 border px-3 py-2 mb-1 ml-1 md:ml-2 rounded"
+            type="text"
+            [(ngModel)]="img.url"
+            placeholder="URL de la imagen"
+            name="imageUrl{{$index}}"
+          />
+          <button
+            class="bg-red-500 text-white px-2 py-1 rounded"
+            type="button"
+            (click)="eliminarImagen($index)"
+          >
+            Eliminar
+          </button>
+        </div>
+      }
 
-      <button class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 ml-1 md:ml-2 px-3 py-1 rounded transition" type="button" (click)="agregarImagen()">Agregar imagen</button>
-
+      <button
+        class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 ml-1 md:ml-2 px-3 py-1 rounded transition"
+        type="button"
+        (click)="agregarImagen()"
+      >
+        Agregar imagen
+      </button>
     </div>
+
 
     <div class="mt-4">
       <h4 class="font-bold">Características del producto:</h4>
 
-      <div *ngFor="let f of nuevoProducto.features; let i = index" class="md:flex items-center gap-1 mb-2">
-        <input class="w-80 border px-3 py-2 mb-1 rounded" type="text" [(ngModel)]="f.name" placeholder="Nombre" name="featureName{{i}}" />
-        <input class="w-80 border px-3 py-2 mb-1 rounded" type="text" [(ngModel)]="f.value" placeholder="Valor" name="featureValue{{i}}" />
-        <button class="bg-red-500 text-white px-2 py-1 rounded" type="button" (click)="eliminarCaracteristica(i)">Eliminar</button>
-      </div>
+      @for (f of nuevoProducto.features; track $index) {
+        <div class="md:flex items-center gap-1 mb-2">
+          <input
+            class="w-80 border px-3 py-2 mb-1 rounded"
+            type="text"
+            [(ngModel)]="f.name"
+            placeholder="Nombre"
+            name="featureName{{$index}}"
+          />
+          <input
+            class="w-80 border px-3 py-2 mb-1 rounded"
+            type="text"
+            [(ngModel)]="f.value"
+            placeholder="Valor"
+            name="featureValue{{$index}}"
+          />
+          <button
+            class="bg-red-500 text-white px-2 py-1 rounded"
+            type="button"
+            (click)="eliminarCaracteristica($index)"
+          >
+            Eliminar
+          </button>
+        </div>
+      }
 
-      <button class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 px-3 py-1 rounded transition" type="button" (click)="agregarCaracteristica()">Agregar característica</button>
-
+      <button
+        class="inline-block bg-yellow-600 hover:bg-yellow-700 text-white my-2 px-3 py-1 rounded transition"
+        type="button"
+        (click)="agregarCaracteristica()"
+      >
+        Agregar característica
+      </button>
     </div>
+
 
     <!-- Botón -->
     <button

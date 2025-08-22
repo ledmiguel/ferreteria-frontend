@@ -1,13 +1,13 @@
 <nav class=" bg-[#00003c] text-white p-3 md:flex md:justify-between md:items-center">
   <a routerLink="/" class="text-xl font-bold">🛠️ JMC Ferretería 🛒</a>
-  <!--<a href=""> <img class="w-20" src="assets/img/jmclogo.png" alt="jmclogo"> </a>-->
-  <div class="flex-1 mx-6">
+  <!-- <a href=""> <img class="w-20" src="assets/img/jmclogo.png" alt="jmclogo"> </a> -->
+  <!-- <div class="flex-1 mx-6"> 
     <input
       type="text"
       placeholder="Buscar productos..."
       class="w-full border rounded px-4 py-2 focus:outline-none focus:ring focus:border-blue-400"
     />
-  </div>
+  </div>-->
 
   <div class="flex flex-col md:flex-row gap-4 items-center text-center p-3 md:p-1 ">
     <div class="flex justify-between gap-4">
@@ -17,20 +17,17 @@
     </div>
 
     <div class="flex justify-between gap-4">
-      <ng-container *ngIf="auth.isLoggedIn(); else loginLink">
+      @if (auth.isLoggedIn()) {
         <div class="bg-blue-600 rounded p-1 md:p-2">
           <a routerLink="/agregar-producto" class="text-[15px]">➕ Productos</a>
         </div>
         <div class="bg-blue-600 rounded p-1 md:p-2">  
           <a routerLink="/crear-categoria" class="text-[15px]">📝 Categorías</a>
         </div>  
-          <button (click)="logout()" class="bg-red-600 px-3 py-1 rounded hover:bg-red-700">Salir</button>
-      </ng-container>
-    </div>
-    <div>
-      <ng-template #loginLink>
+        <button (click)="logout()" class="bg-red-600 px-3 py-1 rounded hover:bg-red-700">Salir</button>
+      } @else {
         <a routerLink="/login" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-700">Login</a>
-      </ng-template>
+      }
     </div>
 
   </div>
